@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using NLayer.Service.Services.User;
 
 namespace NLayer.Service.Mapping
 {
-    internal class MapProfile
+    public class MapProfile :Profile
     {
+        public MapProfile() {
+
+            CreateMap<UserCreateViewModel, Entity.User>();
+            CreateMap<Entity.User,UserModel>();
+            CreateMap<UserModel, UserViewModel>();
+        }
     }
 }

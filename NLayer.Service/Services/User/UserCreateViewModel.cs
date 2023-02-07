@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLayer.Core.DTOs;
 
 namespace NLayer.Service.Services.User
 {
-    internal class UserCreateViewModel
+    public class UserCreateViewModel :IBaseViewDto
     {
+        public int Passoword { get; set; }
+        public string Email { get; set; }
     }
 }

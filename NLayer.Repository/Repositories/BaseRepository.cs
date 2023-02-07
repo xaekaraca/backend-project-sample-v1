@@ -3,7 +3,6 @@ using NLayer.Core.Repositories;
 using NLayer.Repository.Context;
 using NLayer.Core.Entities;
 using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace NLayer.Repository.Repositories
 {
@@ -50,12 +49,34 @@ namespace NLayer.Repository.Repositories
             queryableEntities = _dbSet.AsNoTracking().AsQueryable();
             return queryableEntities;
         }
-        #region Update
+
+        public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> filter)
+        {
+            var query = _dbSet.Where(filter );
+            return query;
+        }
+
+        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken)
+        {
+            var checkEntityExist = await _dbSet.AnyAsync(filter, cancellationToken);
+            return checkEntityExist;
+        }
         
+        #region Update
+        public void Update(TEntity entity)
+        {
+            entity.UpdatedAt = DateTime.Now;
+            _dbSet.Update(entity);
+        }
         #endregion
         
         #region Delete
-        
+        public void Delete(TEntity entity)
+        {
+            entity.UpdatedAt= DateTime.Now;
+            entity.IsDeleted = true;
+            _dbSet.Update(entity);
+        }
         #endregion
     }
 }

@@ -4,8 +4,8 @@ using NLayer.Core.Entities;
 namespace NLayer.Core.Services
 {
     public interface IBaseService<TEntityView, TEntityService>
-        where TEntityService : class,IBaseEntity, new()
-        where TEntityView : class,IBaseModelDto,new()
+        where TEntityView : class,IBaseEntity, new()
+        where TEntityService : class,IBaseModelDto,new()
     {
         #region Create
         Task<TEntityService> AddAsync(TEntityView entity, CancellationToken cancellationToken);
@@ -15,6 +15,7 @@ namespace NLayer.Core.Services
         Task<TEntityService> GetByIdAsync(int id, CancellationToken cancellationToken);
         Task<List<TEntityService>> GetAll(CancellationToken cancellationToken);
         #endregion
+
         #region Update
 
         Task<bool> Update(TEntityView entity, CancellationToken cancellationToken);

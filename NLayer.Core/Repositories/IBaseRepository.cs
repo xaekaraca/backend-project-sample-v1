@@ -12,7 +12,7 @@ namespace NLayer.Core.Repositories
         #region Read
         Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken);
         IQueryable<TEntity> GetAll(bool includeDeleted = false);
-        IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken);
+        IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> filter);
         Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken);
         #endregion
 

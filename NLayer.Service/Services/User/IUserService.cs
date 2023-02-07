@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLayer.Core.Services;
 
 namespace NLayer.Service.Services.User
 {
-    internal interface IUserService
+    public interface IUserService :IBaseService<Entity.User, UserModel>
     {
     }
 }

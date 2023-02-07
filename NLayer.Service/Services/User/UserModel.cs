@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLayer.Core.DTOs;
 
 namespace NLayer.Service.Services.User
 {
-    internal class UserModel
+    public class UserModel :IBaseModelDto
     {
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public byte[] JwtToken { get; set; }
+        public byte[] RefreshToken { get; set; }
     }
 }
