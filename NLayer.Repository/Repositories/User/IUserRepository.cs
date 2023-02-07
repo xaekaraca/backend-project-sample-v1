@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLayer.Core.Repositories;
 
 namespace NLayer.Repository.Repositories.User
 {
-    internal interface IUserRepository
+    public interface IUserRepository: IBaseRepository<Entity.User>
     {
     }
 }

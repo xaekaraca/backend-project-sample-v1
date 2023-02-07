@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLayer.Repository.Repositories.User;
 
 namespace NLayer.Repository.UnitOfWork
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
+        IUserRepository UserRepository { get; }
+        Task CommitAsync(CancellationToken cancellationToken = default);
+        void Commit();
     }
+
 }

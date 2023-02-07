@@ -15,6 +15,7 @@ namespace NLayer.Core.Repositories
         IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken);
         Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken);
         #endregion
+
         #region Update
 
         void Update(TEntity entity);

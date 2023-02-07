@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLayer.Repository.Context;
 
 namespace NLayer.Repository.Repositories.User
 {
-    internal class UserRepository
+    public class UserRepository :BaseRepository<Entity.User>, IUserRepository
     {
+        public UserRepository(BaseContext context) : base(context) { }
     }
 }
