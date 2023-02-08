@@ -37,7 +37,7 @@ namespace NLayer.Repository.Repositories
             var getByIdAsync = await _dbSet.Where(e => e.Id == id).SingleOrDefaultAsync(cancellationToken);
             return getByIdAsync;
         }
-        #endregion
+        
         public IQueryable<TEntity> GetAll (bool includeDeleted = false)
         {
             IQueryable<TEntity> queryableEntities;
@@ -61,7 +61,8 @@ namespace NLayer.Repository.Repositories
             var checkEntityExist = await _dbSet.AnyAsync(filter, cancellationToken);
             return checkEntityExist;
         }
-        
+        #endregion
+
         #region Update
         public void Update(TEntity entity)
         {
